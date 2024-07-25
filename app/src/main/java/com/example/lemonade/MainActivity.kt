@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -32,8 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    
-
+                    ButtonAndImage()
                 }
             }
         }
@@ -41,31 +41,34 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ButtonAndImage(modifier: Modifier = Modifier){
+fun ButtonAndImage(modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
+        Row(
+            modifier = Modifier
+                .background(Color.Yellow)
+        ){
             Text(
                 text = "lemonade",
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = modifier
-                    .padding(10.dp)
-                    .background(Color.Yellow)
+                    .padding(20.dp)
                     .fillMaxWidth()
             )
+        }
         LemonApp()
     }
 
 }
 
 
-    @Preview (showBackground = true)
-    @Composable
-    fun LemonadePreview() {
-        LemonadeTheme {
-            ButtonAndImage(
-            )
-
-        }
+@Preview(showBackground = true)
+@Composable
+fun LemonadePreview() {
+    LemonadeTheme {
+        ButtonAndImage(
+        )
     }
+}
